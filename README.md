@@ -1,46 +1,48 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). Read more about it [here](./PROJECT.md)
 
-## Available Scripts
+## Air Quality Monitoring
 
-In the project directory, you can run:
+The application is built using React (functional components, Typescript, Context API) and Express.
 
-### `npm start`
+There are 2 major pages in the application
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Dashboard - this shows the list of cities, their AQI and the date when AQI was last updated. On clicking the individual city entry in the dashboard table, you will be redirected to another page showing the city's AQI trend for a maximum of 20 data points (configurable in code) to save some memory and to make the graph look cleaner (too many data points clutter the graph).
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+![Dashboard Image](./imgs/aqiList.png)     
 
-### `npm test`
+![City Dashboard](./imgs/cityDashboard.png)     
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- AQI Comparer - This page will prompt to choose any 2 cities for which data is available and will plot a corresponding graph comparing the API for 2 cities.
 
-### `npm run build`
+![AQI Comparer](./imgs/aqiComparer.png)    
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+![Comparison Graph](./imgs/comparisonGraph.png)    
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Technologies/ Libraries used
 
-### `npm run eject`
+- React
+- React Router
+- Context API
+- React Hooks
+- Web Sockets
+- React Bootstrap
+- Express
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Deployment
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The app is deployed to [heroku](https://air-quality-assessment.herokuapp.com/).
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### NOTE
 
-## Learn More
+Do not directly navigate to `/dashboard`. Open the heroku app using above link and then click on the `Air Quality Monitoring` icon or the `Dashboard` link in the Navigation bar
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Time taken
+
+10 hours
