@@ -24,6 +24,7 @@ There are 2 major pages in the application
 ## Technologies/ Libraries used
 
 - React
+- Recharts
 - React Router
 - Context API
 - React Hooks
