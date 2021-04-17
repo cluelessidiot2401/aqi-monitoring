@@ -31,10 +31,6 @@ const AQIComparer = () => {
           <select
             name="city1"
             id="city1"
-            onClick={(e) => {
-              console.log(e);
-              console.log(e.target);
-            }}
             onChange={(e) => setCity1(e.target.value)}
             defaultValue={cityList[0]}
           >

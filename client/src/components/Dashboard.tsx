@@ -31,7 +31,6 @@ export const Dashboard = () => {
         dataPoint[cityName] = entry.aqi;
         tmpData.push(dataPoint);
       });
-      console.log(tmpData);
       setMyData(tmpData);
     }
   }, [aqiArchive, params]);
@@ -41,7 +40,7 @@ export const Dashboard = () => {
       <ResponsiveContainer width="100%" height="100%">
         <div>
           <LineChart
-            width={window.innerWidth * 0.8}
+            width={window.innerWidth * 0.5}
             height={window.innerHeight * 0.6}
             data={myData}
           >
