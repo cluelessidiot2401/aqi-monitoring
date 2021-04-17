@@ -1,0 +1,72 @@
+import React, { useContext, useEffect, useState } from "react";
+import { Button, Dropdown, DropdownButton, Form } from "react-bootstrap";
+import { Link } from "react-router-dom";
+import { GlobalContext } from "../context/GlobalState";
+import "./AQIComparer.scss";
+
+const AQIComparer = () => {
+  const { aqiArchive } = useContext(GlobalContext);
+
+  const [cityList, setCityList] = useState<string[]>([]);
+  const [city1, setCity1] = useState("");
+  const [city2, setCity2] = useState("");
+
+  useEffect(() => {
+    let cityListTmp: string[] = [];
+    for (let city in aqiArchive) cityListTmp.push(city);
+    setCityList(cityListTmp);
+    if (city1 === "" || !city1) setCity1(cityList[0]);
+    if (city2 === "" || !city2) setCity2(cityList[0]);
+  }, [aqiArchive]);
+
+  useEffect(() => {
+    if (city1 === "" || !city1) setCity1(cityList[0]);
+    if (city2 === "" || !city2) setCity2(cityList[0]);
+  }, [cityList]);
+
+  return (
+    <div>
+      <Form>
+        <Form.Group controlId="formBasicEmail">
+          <label htmlFor="city1">Choose a city:</label>
+          <select
+            name="city1"
+            id="city1"
+            onClick={(e) => {
+              console.log(e);
+              console.log(e.target);
+            }}
+            onChange={(e) => setCity1(e.target.value)}
+            defaultValue={cityList[0]}
+          >
+            {cityList.map((city, idx) => (
+              <option key={idx} value={city}>
+                {city}
+              </option>
+            ))}
+          </select>
+
+          <label htmlFor="city2">Choose another city:</label>
+          <select
+            name="city2"
+            id="city2"
+            onChange={(e) => setCity2(e.target.value)}
+            defaultValue={cityList[0]}
+          >
+            {cityList.map((city, idx) => (
+              <option key={idx} value={city}>
+                {city}
+              </option>
+            ))}
+          </select>
+        </Form.Group>
+
+        <Link to={`/compareAQI/${city1}/${city2}`}>
+          <h3>Compare</h3>
+        </Link>
+      </Form>
+    </div>
+  );
+};
+
+export default AQIComparer;
