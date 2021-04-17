@@ -4,7 +4,8 @@
   "description": "An SPA for monitoring Air Quality Index in various cities",
   "main": "server.js",
   "scripts": {
-    "start": "npm start --prefix client"
+    "start": "npm start --prefix client",
+    "heroku-postbuild": "cd ./client && npm install --production=false && npm run build"
   },
   "repository": {
     "type": "git",
