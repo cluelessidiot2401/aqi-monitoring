@@ -3,3 +3,18 @@
         color: black;
     }
 }
+
+form {
+    height: 100%;
+    display: grid;
+    place-items: center;
+
+    .form-group {
+        padding: 1rem;
+        margin: 1rem;
+
+        label {
+            padding: 0 1rem;
+        }
+    }
+}

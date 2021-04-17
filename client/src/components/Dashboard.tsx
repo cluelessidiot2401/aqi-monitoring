@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { GlobalContext } from "../context/GlobalState";
+import "./Dashboard.scss";
 
 export const Dashboard = () => {
   let params = useParams<{ city: string }>();
@@ -36,27 +37,23 @@ export const Dashboard = () => {
   }, [aqiArchive, params]);
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <div>
-        <LineChart
-          width={500}
-          height={300}
-          data={myData}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey={params.city} stroke="#82ca9d" />
-        </LineChart>
-      </div>
-    </ResponsiveContainer>
+    <div className="container">
+      <ResponsiveContainer width="100%" height="100%">
+        <div>
+          <LineChart
+            width={window.innerWidth * 0.8}
+            height={window.innerHeight * 0.6}
+            data={myData}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line type="monotone" dataKey={params.city} stroke="#82ca9d" />
+          </LineChart>
+        </div>
+      </ResponsiveContainer>
+    </div>
   );
 };

@@ -25,7 +25,7 @@ export const AppReducer = (state: State, action: ActionType): State => {
       data.forEach((entry: any) => {
         if (!archive[entry.city]) archive[entry.city] = [];
         archive[entry.city].push({
-          aqi: entry.aqi,
+          aqi: Number((entry.aqi as number).toFixed(2)),
           time: action.payload.timeStamp,
         });
       });

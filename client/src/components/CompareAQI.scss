@@ -1,0 +1,17 @@
+.container {
+    min-height: 80vh;
+    width: 90vw;
+    display: grid;
+    place-items: center;
+
+    .recharts-responsive-container {
+        height: 80%;
+        width: 100%;
+        padding-top: 5rem;
+
+        div {
+            display: grid;
+            place-items: center;
+        }
+    }
+}

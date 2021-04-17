@@ -15,8 +15,6 @@ const AQIComparer = () => {
     let cityListTmp: string[] = [];
     for (let city in aqiArchive) cityListTmp.push(city);
     setCityList(cityListTmp);
-    if (city1 === "" || !city1) setCity1(cityList[0]);
-    if (city2 === "" || !city2) setCity2(cityList[0]);
   }, [aqiArchive]);
 
   useEffect(() => {
@@ -27,7 +25,7 @@ const AQIComparer = () => {
   return (
     <div>
       <Form>
-        <Form.Group controlId="formBasicEmail">
+        <Form.Group controlId="City1">
           <label htmlFor="city1">Choose a city:</label>
           <select
             name="city1"
@@ -45,7 +43,9 @@ const AQIComparer = () => {
               </option>
             ))}
           </select>
+        </Form.Group>
 
+        <Form.Group controlId="City2">
           <label htmlFor="city2">Choose another city:</label>
           <select
             name="city2"

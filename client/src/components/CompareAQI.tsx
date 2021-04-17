@@ -11,6 +11,7 @@ import {
   ResponsiveContainer,
 } from "recharts";
 import { GlobalContext } from "../context/GlobalState";
+import "./CompareAQI.scss";
 
 export const CompareAQI = () => {
   let params = useParams<{ city1: string; city2: string }>();
@@ -64,33 +65,29 @@ export const CompareAQI = () => {
   }, [aqiArchive, params]);
 
   return (
-    <ResponsiveContainer width="100%" height="100%">
-      <div>
-        <LineChart
-          width={500}
-          height={300}
-          data={myData}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line
-            type="monotone"
-            dataKey={params.city2}
-            stroke="#8884d8"
-            activeDot={{ r: 8 }}
-          />
-          <Line type="monotone" dataKey={params.city1} stroke="#82ca9d" />
-        </LineChart>
-      </div>
-    </ResponsiveContainer>
+    <div className="container">
+      <ResponsiveContainer width="100%" height="100%">
+        <div>
+          <LineChart
+            width={window.innerWidth * 0.8}
+            height={window.innerHeight * 0.6}
+            data={myData}
+          >
+            <CartesianGrid strokeDasharray="3 3" />
+            <XAxis dataKey="name" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <Line
+              type="monotone"
+              dataKey={params.city2}
+              stroke="#8884d8"
+              activeDot={{ r: 8 }}
+            />
+            <Line type="monotone" dataKey={params.city1} stroke="#82ca9d" />
+          </LineChart>
+        </div>
+      </ResponsiveContainer>
+    </div>
   );
 };

@@ -4,14 +4,20 @@ import logo from "../static-files/imgs/logo.png";
 
 const Navigation = () => {
   return (
-    <Navbar className="navbar" bg="dark" variant="dark" sticky="top">
-      <Link to="/">
+    <Navbar
+      className="navbar"
+      bg="dark"
+      variant="dark"
+      sticky="top"
+      style={{ alignItems: "baseline" }}
+    >
+      <Link to="/dashboard">
         <Navbar.Brand id="nav-title">
           <img className="nav-logo" src={logo} alt="" /> Air Quality Monitoring
         </Navbar.Brand>
       </Link>
       <Nav className="nav-items">
-        <Link to="/home">
+        <Link to="/dashboard">
           <h3>AQI List</h3>
         </Link>
         <Link to="/compareAQI">
