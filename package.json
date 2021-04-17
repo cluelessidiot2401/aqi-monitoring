@@ -1,0 +1,23 @@
+{
+  "name": "aqi-monitoring",
+  "version": "1.0.0",
+  "description": "An SPA for monitoring Air Quality Index in various cities",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cluelessidiot2401/aqi-monitoring.git"
+  },
+  "keywords": [
+    "react",
+    "spa"
+  ],
+  "author": "Vikram",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cluelessidiot2401/aqi-monitoring/issues"
+  },
+  "homepage": "https://github.com/cluelessidiot2401/aqi-monitoring#readme"
+}
