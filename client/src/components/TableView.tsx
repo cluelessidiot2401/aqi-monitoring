@@ -5,12 +5,10 @@ import { OverlayTrigger, Table, Tooltip } from "react-bootstrap";
 import { useHistory } from "react-router-dom";
 import useWebSocket from "react-use-websocket";
 import { getCSSStyle } from "../helpers/aqiColorMapper";
-import increaseTrend from "../static-files/imgs/increase.png";
-import decreaseTrend from "../static-files/imgs/decrease.png";
 import "./TableView.scss";
 
 const TableView = () => {
-  const [socketUrl] = useState("ws://city-ws.herokuapp.com");
+  const [socketUrl] = useState(process.env.REACT_APP_WEB_SOCKET_URL ?? "");
 
   const { lastMessage } = useWebSocket(socketUrl);
 
@@ -21,19 +19,6 @@ const TableView = () => {
   }, [lastMessage]);
 
   const { aqiArchive, addEntry } = useContext(GlobalContext);
-
-  const getProperIcon = (
-    currentAQI: number,
-    previousAQI: number | null
-  ): JSX.Element => {
-    if (!previousAQI) {
-      return <></>;
-    }
-    if (currentAQI > previousAQI) return <img src={increaseTrend} alt="" />;
-    else if (currentAQI < previousAQI)
-      return <img src={decreaseTrend} alt="" />;
-    return <></>;
-  };
 
   let history = useHistory();
   const getTableComp = (): JSX.Element => {

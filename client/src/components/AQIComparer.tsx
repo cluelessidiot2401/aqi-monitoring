@@ -1,5 +1,5 @@
-import React, { useContext, useEffect, useState } from "react";
-import { Button, Dropdown, DropdownButton, Form } from "react-bootstrap";
+import { useContext, useEffect, useState } from "react";
+import { Form } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../context/GlobalState";
 import "./AQIComparer.scss";
@@ -20,6 +20,7 @@ const AQIComparer = () => {
   useEffect(() => {
     if (city1 === "" || !city1) setCity1(cityList[0]);
     if (city2 === "" || !city2) setCity2(cityList[0]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [cityList]);
 
   return (
