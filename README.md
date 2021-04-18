@@ -4,7 +4,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Air Quality Monitoring
 
-The application is built using React (functional components, Typescript, Context API) and Express.
+The application is built using React (functional components, Typescript, Context API) and Express.   
+
+
+![Application](./imgs/aqi.gif)    
+
+
 
 There are 2 major pages in the application
 
@@ -46,4 +51,4 @@ Do not directly navigate to `/dashboard`. Open the heroku app using above link a
 
 ## Time taken
 
-10 hours
+8 hours
